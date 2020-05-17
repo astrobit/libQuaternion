@@ -15,12 +15,12 @@ namespace libQuaternion
 			fVal[2] = 0.0;
 			fVal[3] = 0.0;
 		}
-		Quaternion(float fX, float fY, float fZ, float fW)
+		Quaternion(float i_fW, float i_fX, float i_fY, float i_fZ)
 		{
-			fVal[0] = fW;
-			fVal[1] = fX;
-			fVal[2] = fY;
-			fVal[3] = fZ;
+			fVal[0] = i_fW;
+			fVal[1] = i_fX;
+			fVal[2] = i_fY;
+			fVal[3] = i_fZ;
 		}
 
 		float w(void) const {return fVal[0];}
@@ -38,7 +38,7 @@ namespace libQuaternion
 
 		Quaternion operator - (void) const
 		{
-			return Quaternion(-fVal[1],-fVal[2],-fVal[3],-fVal[0]);
+			return Quaternion(-fVal[0],-fVal[1],-fVal[2],-fVal[3]);
 		}
 		Quaternion & operator += (const Quaternion & i_cRHO)
 		{
@@ -101,19 +101,21 @@ namespace libQuaternion
 			float fMagnitude = fVal[0] * fVal[0] + fVal[1] * fVal[1] + fVal[2] * fVal[2] + fVal[3] * fVal[3];
 			float fInv_Magnitude = 1.0 / fMagnitude;
 
-			Quaternion qRevised(-fVal[1] * fInv_Magnitude,
+			Quaternion qRevised(fVal[0] * fInv_Magnitude,
+								-fVal[1] * fInv_Magnitude,
 								-fVal[2] * fInv_Magnitude,
-								-fVal[3] * fInv_Magnitude,
-								fVal[0] * fInv_Magnitude);
+								-fVal[3] * fInv_Magnitude
+								);
 
 			return qRevised;
 		}
 		Quaternion operator * (const Quaternion & i_cRHO) const
 		{
-			Quaternion qRevised(fVal[0] * i_cRHO.fVal[1] + i_cRHO.fVal[0] * fVal[1] + fVal[2] * i_cRHO.fVal[3] - fVal[3] * i_cRHO.fVal[2],
+			Quaternion qRevised(fVal[0] * i_cRHO.fVal[0] - fVal[1] * i_cRHO.fVal[1] - fVal[2] * i_cRHO.fVal[2] - fVal[3] * i_cRHO.fVal[3],
+								fVal[0] * i_cRHO.fVal[1] + i_cRHO.fVal[0] * fVal[1] + fVal[2] * i_cRHO.fVal[3] - fVal[3] * i_cRHO.fVal[2],
 								fVal[0] * i_cRHO.fVal[2] + i_cRHO.fVal[0] * fVal[2] + fVal[3] * i_cRHO.fVal[1] - fVal[1] * i_cRHO.fVal[3],
-								fVal[0] * i_cRHO.fVal[3] + i_cRHO.fVal[0] * fVal[3] + fVal[1] * i_cRHO.fVal[2] - fVal[2] * i_cRHO.fVal[1],
-								fVal[0] * i_cRHO.fVal[0] - fVal[1] * i_cRHO.fVal[1] - fVal[2] * i_cRHO.fVal[2] - fVal[3] * i_cRHO.fVal[3]);
+								fVal[0] * i_cRHO.fVal[3] + i_cRHO.fVal[0] * fVal[3] + fVal[1] * i_cRHO.fVal[2] - fVal[2] * i_cRHO.fVal[1]
+								);
 
 			return qRevised;
 		}

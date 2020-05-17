@@ -62,10 +62,10 @@ int main(void)
 	int iFailures = 0;
 	bool bSilent_Pass = true;
 	Quaternion qA;
-	Quaternion qW(0,0,0,1);
-	Quaternion qX(1,0,0,0);
-	Quaternion qY(0,1,0,0);
-	Quaternion qZ(0,0,1,0);
+	Quaternion qW(1,0,0,0);
+	Quaternion qX(0,1,0,0);
+	Quaternion qY(0,0,1,0);
+	Quaternion qZ(0,0,0,1);
 	
 	iFailures += testAndReport(bSilent_Pass,"W",qW,1,0,0,0);
 	iFailures += testAndReport(bSilent_Pass,"X",qX,0,1,0,0);
