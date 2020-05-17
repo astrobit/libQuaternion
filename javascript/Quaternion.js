@@ -5,7 +5,6 @@
 @version 1.0.0
 @date May 2020
 @copyright MIT License
-
 */
 
 class Quaternion
@@ -243,7 +242,7 @@ Assigns the multiplicative inverse of the current quaternion to itself.
 
 /** 
 Perform multiplication (Hamilton product) of two quaternions.
-\f[<w_1 w_2 - \vec{x}_1 \bullet \vec{x_2}, w_1 \vec{x_2} + w_2 \vec{x}_1 + \vec{x}_1 \times \vec{x}_2]\f
+\f[<w_1 w_2 - \vec{x}_1 \bullet \vec{x_2}, w_1 \vec{x_2} + w_2 \vec{x}_1 + \vec{x}_1 \times \vec{x}_2>\f]
 @param RHO the quaternion by which to multiply this quaternion
 @returns a new Quaternion that is the multiplied by the factor
 */
@@ -256,7 +255,7 @@ Perform multiplication (Hamilton product) of two quaternions.
 	}
 /** 
 Perform multiplication (Hamilton product) of two quaternions, storing the result in this Quaternion.
-\f[<w_1 w_2 - \vec{x}_1 \bullet \vec{x_2}, w_1 \vec{x_2} + w_2 \vec{x}_1 + \vec{x}_1 \times \vec{x}_2]\f
+\f[<w_1 w_2 - \vec{x}_1 \bullet \vec{x_2}, w_1 \vec{x_2} + w_2 \vec{x}_1 + \vec{x}_1 \times \vec{x}_2>\f]
 @param RHO the quaternion by which to multiply this quaternion
 @returns none
 */
@@ -272,7 +271,7 @@ Perform multiplication (Hamilton product) of two quaternions, storing the result
 		this._w = qNew._w;
 	}
 /** 
-Perform division of two quaternions via the multiplicative inverse and the Hamilton product \f$(\q_1 q_2^{-1})\f$.
+Perform division of two quaternions via the multiplicative inverse and the Hamilton product \f$(q_1 q_2^{-1})\f$.
 @param RHO the quaternion by which to divide this quaternion
 @returns a new Quaternion that is the divided by the right hand operator (RHO)
 */
@@ -281,7 +280,7 @@ Perform division of two quaternions via the multiplicative inverse and the Hamil
 		return this.qMultiply(RHO.invert());
 	}
 /** 
-Perform division of two quaternions via the multiplicative inverse and the Hamilton product \f$(\q_1 q_2^{-1})\f$, storing the result in this Quaternion.
+Perform division of two quaternions via the multiplicative inverse and the Hamilton product \f$(q_1 q_2^{-1})\f$, storing the result in this Quaternion.
 @param RHO the quaternion by which to divide this quaternion
 @returns none
 */
