@@ -1,5 +1,11 @@
 /** 
-Quaternion Object, providing an encapsulation of quaternion data and methods
+@brief An encapsulation of quaternion data and methods for Javascript
+@details 
+@author Brian W. Mulligan
+@version 1.0.0
+@date May 2020
+@copyright MIT License
+
 */
 
 class Quaternion
@@ -80,7 +86,7 @@ Set for the imaginary z component
 
 /** 
 Get the magnitude (length) of the quaternion
-@returns the magnitude of the quaternion (\f$\sqrt{w^2 + x^2 + y^2 + z^2}$\f)
+@returns the magnitude of the quaternion \f$(\sqrt{w^2 + x^2 + y^2 + z^2})\f$
 */
 	function magnitude() {return Math.sqrt(this._w * this._w + this._x * this._x  + this._y * this._y + this._z * this._z);}
 
@@ -95,7 +101,7 @@ Get the additive inverse (negative value) of the quaternion.
 /** 
 Add two quaternions, returning the result in a new Quaternion
 @param RHO the right hand operand (RHO) to add to this quaternion
-@returns a new Quaternion that is the sum of this quaternion and the RHO (\f$w_1 + w_2,x_1 + x_2, y_1 + y_2, z_1 + z_2$\f)
+@returns a new Quaternion that is the sum of this quaternion and the RHO \f$(w_1 + w_2,x_1 + x_2, y_1 + y_2, z_1 + z_2)\f$
 */
 	function add(RHO)
 	{
@@ -114,7 +120,7 @@ Add two quaternions, placing the result in this Quaternion.
 		this._z += RHO._z;
 	}
 /** 
-Subtract one quaternion from another, returning the result in a new Quaternion.  (\f$w_1 - w_2,x_1 - x_2, y_1 - y_2, z_1 - z_2$\f)
+Subtract one quaternion from another, returning the result in a new Quaternion.  \f$(w_1 - w_2,x_1 - x_2, y_1 - y_2, z_1 - z_2)\f$
 @param RHO the right hand operand (RHO) to subtract to this quaternion
 @returns a new Quaternion that is the sum of this quaternion and the additive inverse of the RHO.
 */
@@ -123,7 +129,7 @@ Subtract one quaternion from another, returning the result in a new Quaternion. 
 		return new Quaternion(this._w - RHO._w, this._x - RHO._x, this._y - RHO._y, this._z - RHO._z);
 	}
 /** 
-Subtract one quaternion from another, placing the result in this Quaternion. (\f$w_1 - w_2,x_1 - x_2, y_1 - y_2, z_1 - z_2$\f)
+Subtract one quaternion from another, placing the result in this Quaternion. \f$(w_1 - w_2,x_1 - x_2, y_1 - y_2, z_1 - z_2)\f$
 @param RHO the right hand operand (RHO) to subtract from this quaternion
 @returns none
 */
@@ -135,7 +141,7 @@ Subtract one quaternion from another, placing the result in this Quaternion. (\f
 		this._z -= RHO._z;
 	}
 /** 
-Multiply the quaternion by a scalar factor (\f$s w, s x, s y, s z$\f)
+Multiply the quaternion by a scalar factor \f$(s w, s x, s y, s z)\f$
 @param scalar the factor by which to scale the quaternion
 @returns a new Quaternion that is the scaled by the scalar factor s
 */
@@ -144,7 +150,7 @@ Multiply the quaternion by a scalar factor (\f$s w, s x, s y, s z$\f)
 		return new Quaternion(this._w * scale, this._x * scale, this._y * scale, this._z * scale);
 	}
 /** 
-Multiply a quaternion by a scalar factor (\f$s w, s x, s y, s z$\f), storing the result in this quaternion
+Multiply a quaternion by a scalar factor \f$(s w, s x, s y, s z)\f$, storing the result in this quaternion
 @param scalar the factor by which to scale the quaternion
 @returns none
 */
@@ -263,7 +269,7 @@ Perform multiplication (Hamilton product) of two quaternions, storing the result
 		this._w = qNew._w;
 	}
 /** 
-Perform division of two quaternions via the multiplicative inverse and the Hamilton product (\f$\q_1 q_2^{-1}$\f).
+Perform division of two quaternions via the multiplicative inverse and the Hamilton product \f$(\q_1 q_2^{-1})\f$.
 @param RHO the quaternion by which to divide this quaternion
 @returns a new Quaternion that is the divided by the right hand operator (RHO)
 */
@@ -272,7 +278,7 @@ Perform division of two quaternions via the multiplicative inverse and the Hamil
 		return qMultiply(RHO.invert());
 	}
 /** 
-Perform division of two quaternions via the multiplicative inverse and the Hamilton product (\f$\q_1 q_2^{-1}$\f), storing the result in this Quaternion.
+Perform division of two quaternions via the multiplicative inverse and the Hamilton product \f$(\q_1 q_2^{-1})\f$, storing the result in this Quaternion.
 @param RHO the quaternion by which to divide this quaternion
 @returns none
 */
