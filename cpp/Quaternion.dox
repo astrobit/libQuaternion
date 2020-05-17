@@ -199,7 +199,7 @@ JAVADOC_AUTOBRIEF      = NO
 
 # If the JAVADOC_BANNER tag is set to YES then doxygen will interpret a line
 # such as
-# /***************
+# slash***************
 # as being the beginning of a Javadoc-style comment "banner". If set to NO, the
 # Javadoc-style will behave just like regular comments and it will not be
 # interpreted by doxygen.
@@ -683,8 +683,6 @@ GENERATE_BUGLIST       = YES
 GENERATE_DEPRECATEDLIST= YES
 
 # The ENABLED_SECTIONS tag can be used to enable conditional documentation
-# sections, marked by \if <section_label> ... \endif and \cond <section_label>
-# ... \endcond blocks.
 
 ENABLED_SECTIONS       =
 
@@ -932,7 +930,7 @@ EXCLUDE_SYMLINKS       = NO
 # certain files from those directories.
 #
 # Note that the wildcards are matched against the file with absolute path, so to
-# exclude all test directories for example use the pattern */test/*
+# exclude all test directories for example use the pattern ...
 
 EXCLUDE_PATTERNS       =
 
@@ -943,7 +941,7 @@ EXCLUDE_PATTERNS       =
 # AClass::ANamespace, ANamespace::*Test
 #
 # Note that the wildcards are matched against the file with absolute path, so to
-# exclude all test directories use the pattern */test/*
+# exclude all test directories use the pattern ...
 
 EXCLUDE_SYMBOLS        =
 
